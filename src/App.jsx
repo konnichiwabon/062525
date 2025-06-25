@@ -18,7 +18,12 @@ const [hasLiked, setHasLiked] = useState(false);
   )
 }
 
-useEffect(()=>{}, [])
+useEffect(()=>{
+  // The code that we want to run 
+
+  //Optional return function
+
+}, [])  //The dependency array
 
 const App = () => {
   const [hasLiked, setHasLiked] = useState(false);
