@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
- 
-import Search from './components/Search.jsx'
+
+import Search from './components/Search';
 
     
 const App = () => {
@@ -18,7 +18,7 @@ const App = () => {
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
 
 
-      </div><div>Search</div>
+      </div>
       
     
       
