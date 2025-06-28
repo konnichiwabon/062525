@@ -1,16 +1,11 @@
-import React from 'react'
-import './App.css'
-
+import React, { useState } from 'react'
+ 
 import Search from './components/Search.jsx'
-      
 
-
-
-
-
-
-
+    
 const App = () => {
+  const [searchTerm, setSearchTerm] = useState("I am Batman");
+
   return (
     <main >
       <div className="pattern" />
@@ -20,12 +15,12 @@ const App = () => {
           <h1>Find <span className="text-gradient">Movies </span>You'll Enjoy  </h1>
         </header>
         
-        <Search/>
+        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
 
 
-      </div>
+      </div><div>Search</div>
       
-         
+    
       
     </main>
   )
