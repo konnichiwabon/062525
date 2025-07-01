@@ -1,6 +1,8 @@
 import  { useEffect, useState } from 'react'
 
 import Search from './components/Search';
+import Spinner from './components/spinner';
+
 
 
 //Base part of the API URL 
@@ -10,6 +12,7 @@ const API_BASE_URL = 'https://api.themoviedb.org/3'
 //Importing the API KEY
 
  const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
+
 
 console.log('Current API key:', API_KEY);
 
@@ -28,12 +31,17 @@ const API_OPTIONS = {
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
-
   const [errorMessage, setErrorMessage] = useState('')
+  const [movieList, setmMovieList] = useState([])
+  const [isLoading, setIsLoading] = useState(false)
 
 
   // FETCHING THE MOVIES 
   const fetchMovies = async ()=> {
+    //FOR LOADING 
+    setIsLoading(true);
+    setErrorMessage('')
+
     try {
       const endpoint = `${API_BASE_URL}/discover/movie?sort_by=popularity.asc`
       console.log(endpoint);
@@ -48,13 +56,21 @@ const App = () => {
       const data = await response.json();
 
       console.log(data)
+      // FOR SETTING THE API RESULTS (JSON)
+      if(data.response === 'False') {
+        setErrorMessage(data.error || 'DILI MAO ');
+        setmMovieList([]);
+        return
+      }
+      // END 
 
-
-
-
+        setmMovieList(data.results || []);
     } catch (error) {
       console.log(`Wala ka fetch ug movies: ${error}`)
-    }
+    } // finally clause or no matter what happens 
+    finally {
+      setIsLoading(false)
+    } 
   }
 //END OF FETCHING 
 
@@ -74,9 +90,20 @@ const App = () => {
         </header>
         
         <section className='all-movies'>
-          <h2>ALL MOVIES</h2>
+          <h2 className='mt-[40px]'>ALL MOVIES</h2>
 
-
+        {/* CONDITIONAL RENDERING */}
+        {isLoading ? (
+          <Spinner/>
+        ) : errorMessage ? (
+          <p className='text-red-500'>{error}</p>
+        ) :(
+          <ul>
+            {movieList.map((movie)=>(
+              <p key={movie.id} className='text-white'>{movie.title}</p>
+            ))}
+          </ul>
+        )}
         </section>
 
         <h1 className="text-white">{searchTerm}</h1>
