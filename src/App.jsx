@@ -2,6 +2,7 @@ import  { useEffect, useState } from 'react'
 
 import Search from './components/Search';
 import Spinner from './components/spinner';
+import MovieCard from './components/MovieCard';
 
 
 
@@ -100,7 +101,7 @@ const App = () => {
         ) :(
           <ul>
             {movieList.map((movie)=>(
-              <p key={movie.id} className='text-white'>{movie.title}</p>
+              <MovieCard key={movie.id} movie={movie}/>
             ))}
           </ul>
         )}
