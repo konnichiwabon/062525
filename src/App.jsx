@@ -57,6 +57,7 @@ const App = () => {
       const data = await response.json();
 
       console.log(data)
+      
       // FOR SETTING THE API RESULTS (JSON)
       if(data.response === 'False') {
         setErrorMessage(data.error || 'DILI MAO ');
