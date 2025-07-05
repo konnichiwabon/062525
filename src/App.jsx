@@ -96,6 +96,7 @@ const App = () => {
       <div className="pattern" />
       <div className="wrapper">
         <header>
+
           <img src="/pics/hero.png" alt="Hero Banner" />
           <h1>Find <span className="text-gradient">Movies </span>You'll Enjoy  </h1>
         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm}/>
@@ -108,7 +109,7 @@ const App = () => {
         {isLoading ? (
           <Spinner/>
         ) : errorMessage ? (
-          <p className='text-red-500'>{error}</p>
+          <p className='text-red-500'>{errorMessage}</p>
         ) :(
           <ul>
             {movieList.map((movie)=>(

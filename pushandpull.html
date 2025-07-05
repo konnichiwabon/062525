@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Git Commands Guide</title>
+</head>
+<body>
+
+  <h2>🚀 Step-by-Step GitHub Push & Pull Guide</h2>
+
+  <h3>📤 1. Push Files to GitHub</h3>
+
+  <p><strong>Step 1: Initialize Git</strong></p>
+  <pre><code>cd your-project-folder
+git init</code></pre>
+
+  <p><strong>Step 2: Link your GitHub repo</strong></p>
+  <pre><code>git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git</code></pre>
+
+  <p><strong>Step 3: Add your files</strong></p>
+  <pre><code>git add .</code></pre>
+
+  <p><strong>Step 4: Commit your changes</strong></p>
+  <pre><code>git commit -m "Initial commit"</code></pre>
+
+  <p><strong>Step 5: Push to GitHub</strong></p>
+  <pre><code>git push -u origin master</code></pre>
+
+  <p><em>💡 Use <code>main</code> instead of <code>master</code> if that’s your default branch:</em></p>
+  <pre><code>git push -u origin main</code></pre>
+
+  <hr>
+
+  <h3>📥 2. Pull Files from GitHub</h3>
+  <pre><code>git pull origin main</code></pre>
+
+  <h3>📦 3. Clone a GitHub Repo</h3>
+  <pre><code>git clone https://github.com/YOUR_USERNAME/YOUR_REPO.git</code></pre>
+
+  <hr>
+
+  <h2>🛠️ FOR OVERRIDING</h2>
+
+  <p>Use the following commands to override your local code with the latest version from GitHub (⚠️ this will delete local changes):</p>
+
+  <pre><code>git fetch origin
+git reset --hard origin/main</code></pre>
+
+</body>
+</html>
